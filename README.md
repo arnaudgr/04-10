@@ -1,6 +1,7 @@
-Jeudi 04/10
+Jeudi 04/10 ~ Data Scentist
 
-journalist.rb
+journalists.rb
+
 cryptomonnaie.rb
 
 Arnaud & Erwan
