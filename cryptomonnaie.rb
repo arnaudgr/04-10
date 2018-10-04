@@ -8,7 +8,7 @@ my_hash = Hash.new
 i = 0
 	monnaie.size.times do 
 		
-		my_hash[valeur[i]] = monnaie[i]
+		my_hash[monnaie[i]] = valeur[i]
 	
 		i = i+1
 	end
@@ -85,10 +85,63 @@ def coin(monnaie)
 	puts j
 end
 
+def inferieur_6000 (my_hash)
+	
+		i = 0
+	
+	my_hash.size.times do
+	
+		chiffre = my_hash.values[i]
+		
+		chiffre_sans = my_hash.values[i].delete"$"
+		chiffre_number = chiffre_sans.to_f
+
+		if chiffre_number <= 6000
+
+			puts inferieur = my_hash.key(chiffre)
+		
+		end
+		i=i+1
+	end
+end
+
+
+def inferieur_6000_top (my_hash)
+	
+		i = 0
+		max_6000 = 0
+		max_6000_text = 0
+	
+	my_hash.size.times do
+	
+		chiffre = my_hash.values[i]
+		
+		chiffre_sans = my_hash.values[i].delete"$"
+		chiffre_number = chiffre_sans.to_f
+
+		if chiffre_number <= 6000
+
+			if chiffre_number > max_6000
+
+				max_6000 = chiffre_number
+				max_6000_text = my_hash.key(chiffre)
+			end
+
+		end
+
+		i=i+1
+	end
+	puts max_6000_text
+end
+
+
 
 
 my_hash = creation_hash(valeur, monnaie)
 max_number = plus_grosse_valeur(my_hash, valeur) 
 plus_petite_valeur(my_hash, valeur, max_number)
 coin(monnaie)
+inferieur_6000(my_hash)
+inferieur_6000_top(my_hash)
+
 	
