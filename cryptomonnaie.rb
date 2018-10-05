@@ -6,26 +6,26 @@ valeur = ["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26", "$0.
 def creation_hash (valeur, monnaie)
 my_hash = Hash.new
 i = 0
-	monnaie.size.times do 
-		
+	monnaie.size.times do
+
 		my_hash[monnaie[i]] = valeur[i]
-	
+
 		i = i+1
 	end
 	return my_hash
 end
 
 
-def plus_grosse_valeur(my_hash, valeur) 
+def plus_grosse_valeur(my_hash, valeur)
 
 	i = 0
 	max_number = 0
 	max_char = 0
 	valeur.size.times do
-	
+
 		chiffre_char_avec = valeur[i]
 		chiffre_char_sans = valeur[i].delete"$"
-		
+
 		chiffre_number = chiffre_char_sans.to_f
 
 		if chiffre_number >= max_number
@@ -34,12 +34,12 @@ def plus_grosse_valeur(my_hash, valeur)
 			max_char = chiffre_char_avec
 		end
 		i=i+1
-	
+
 	end
 
-	puts my_hash.values_at("#{max_char}")
-	return max_number 
-	
+	puts my_hash.key("#{max_char}")
+	return max_number
+
 end
 
 def plus_petite_valeur (my_hash, valeur, max_number)
@@ -48,10 +48,10 @@ def plus_petite_valeur (my_hash, valeur, max_number)
 	min_number = max_number
 	min_char = 0
 	valeur.size.times do
-	
+
 		chiffre_char_avec = valeur[i]
 		chiffre_char_sans = valeur[i].delete"$"
-		
+
 		chiffre_number = chiffre_char_sans.to_f
 
 		if chiffre_number <= min_number
@@ -63,8 +63,8 @@ def plus_petite_valeur (my_hash, valeur, max_number)
 
 	end
 
-	puts my_hash.values_at("#{min_char}")
-	
+	puts my_hash.key("#{min_char}")
+
 end
 
 def coin(monnaie)
@@ -76,7 +76,7 @@ def coin(monnaie)
 		if monnaie[i].include? "coin"
 
 			j = j+1
-		
+
 		end
 	i=i+1
 
@@ -86,20 +86,20 @@ def coin(monnaie)
 end
 
 def inferieur_6000 (my_hash)
-	
+
 		i = 0
-	
+
 	my_hash.size.times do
-	
+
 		chiffre = my_hash.values[i]
-		
+
 		chiffre_sans = my_hash.values[i].delete"$"
 		chiffre_number = chiffre_sans.to_f
 
 		if chiffre_number <= 6000
 
 			puts inferieur = my_hash.key(chiffre)
-		
+
 		end
 		i=i+1
 	end
@@ -107,15 +107,15 @@ end
 
 
 def inferieur_6000_top (my_hash)
-	
+
 		i = 0
 		max_6000 = 0
 		max_6000_text = 0
-	
+
 	my_hash.size.times do
-	
+
 		chiffre = my_hash.values[i]
-		
+
 		chiffre_sans = my_hash.values[i].delete"$"
 		chiffre_number = chiffre_sans.to_f
 
@@ -138,10 +138,8 @@ end
 
 
 my_hash = creation_hash(valeur, monnaie)
-max_number = plus_grosse_valeur(my_hash, valeur) 
+max_number = plus_grosse_valeur(my_hash, valeur)
 plus_petite_valeur(my_hash, valeur, max_number)
 coin(monnaie)
 inferieur_6000(my_hash)
 inferieur_6000_top(my_hash)
-
-	
