@@ -98,7 +98,7 @@ def inferieur_6000 (my_hash)
 
 		if chiffre_number <= 6000
 
-			puts inferieur = my_hash.key(chiffre)
+			print inferieur = my_hash.key(chiffre)
 
 		end
 		i=i+1
@@ -141,5 +141,5 @@ my_hash = creation_hash(valeur, monnaie)
 max_number = plus_grosse_valeur(my_hash, valeur)
 plus_petite_valeur(my_hash, valeur, max_number)
 coin(monnaie)
-inferieur_6000(my_hash)
+puts inferieur_6000(my_hash)
 inferieur_6000_top(my_hash)
